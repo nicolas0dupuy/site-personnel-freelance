@@ -27,3 +27,71 @@ nav a {
 nav a:hover {
     color: #007bff; /* Change la couleur au survol */
 }
+
+/* Positionnement du sélecteur de langue */
+header {
+    position: relative; /* Nécessaire pour positionner un enfant en absolu */
+}
+
+.language-switcher {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+}
+
+.language-switcher img {
+    margin-left: 10px;
+    vertical-align: middle; /* Aligne mieux les images avec le texte alentour */
+}
+
+/* Style de la section Héros */
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+}
+
+.hero h1 {
+    margin-bottom: 10px;
+}
+
+.hero h2 {
+    margin-bottom: 20px;
+    font-weight: normal;
+    color: #555;
+}
+
+.hero .subtitle {
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+}
+
+.cta-button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #0056b3;
+    color: white; /* On s'assure que la couleur du texte ne change pas */
+}
+
+/* Style des points forts */
+.key-strengths {
+    display: flex; /* La magie du Flexbox pour aligner les éléments ! */
+    justify-content: space-around; /* Espace les éléments équitablement */
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto; /* Centre la section */
+}
+
+.strength-item {
+    text-align: center;
+    max-width: 30%; /* Chaque élément prend environ un tiers de la largeur */
+    padding: 0 15px;
+}
