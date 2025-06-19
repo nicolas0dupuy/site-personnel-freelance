@@ -1,0 +1,29 @@
+/* Pour commencer en douceur, une police plus agréable */
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+}
+
+/* On met en forme la navigation */
+nav ul {
+    background-color: #f4f4f4;
+    list-style-type: none; /* Enlève les puces */
+    padding: 15px;
+    margin: 0;
+    text-align: center; /* Centre le menu */
+}
+
+nav ul li {
+    display: inline-block; /* Met les éléments sur la même ligne */
+    margin: 0 15px; /* Ajoute de l'espace horizontal entre les liens */
+}
+
+nav a {
+    text-decoration: none; /* Enlève le soulignement des liens */
+    color: #333; /* Change la couleur du lien en gris foncé */
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #007bff; /* Change la couleur au survol */
+}

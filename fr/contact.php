@@ -1,15 +1,15 @@
 <?php
 // Définition des variables spécifiques à la page
 $lang = 'fr';
-$page_title = 'Nicolas Dupuy | Data Science & Machine Learning | Freelance services';
+$page_title = 'Mon contact | Nicolas Dupuy';
 
 // Inclusion du header
 include '../includes/header.php';
 ?>
 
 <main>
-    <h1>Bienvenue sur mon site</h1>
-    <p>La page d'accueil viendra bientôt ici.</p>
+    <h1>Mon Expertise</h1>
+    <p>Le contenu de la page contact viendra ici.</p>
 </main>
 
 <?php
