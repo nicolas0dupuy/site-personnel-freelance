@@ -134,17 +134,23 @@ header {
 
 .carousel-track {
     display: flex;
-    width: 300%; /* 3 slides * 100% de largeur chacune */
-    transition: transform 0.5s ease-in-out; /* Animation de la glisse */
+    /* La piste fait maintenant 5x la largeur (5 slides) */
+    width: 500%; 
+    /* La transition ne change pas */
+    transition: transform 0.7s cubic-bezier(0.65, 0, 0.35, 1);
+    /* NOUVEAU : On applique la position initiale depuis le JS, donc on s'assure que le CSS est bon */
+    /* On va positionner le track au début depuis le JS */
 }
 
 .carousel-slide {
-    width: 33.3333%;
+    /* Chaque slide prend 1/5 de la piste (100% / 5 = 20%) */
+    width: 20%; 
     padding: 0 15px;
     box-sizing: border-box;
 }
 
 .carousel-button {
+    display: block;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -220,4 +226,20 @@ nav#main-nav {
 nav#main-nav.is-open {
     display: block;
 }
+}
+
+
+/* Styles spécifiques pour les grands écrans (plus larges que 768px) */
+@media (min-width: 769px) {
+    /* On cache les slides qui ont été clonées par le JS */
+    #first-clone,
+    #last-clone {
+        display: none;
+    }
+
+    /* NOUVELLE RÈGLE CI-DESSOUS */
+    /* On force la piste à ne pas être décalée par le JavaScript */
+    .carousel-track {
+        transform: translateX(0) !important;
+    }
 }

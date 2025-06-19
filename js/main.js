@@ -16,34 +16,92 @@ document.addEventListener('DOMContentLoaded', function() {
     // --- Logique du Carrousel ---
 const track = document.querySelector('.carousel-track');
 
-// On exécute le code seulement si le carrousel existe sur la page
 if (track) {
-    const slides = Array.from(track.children);
+    const allSlides = Array.from(track.children);
     const nextButton = document.querySelector('.carousel-button.next');
     const prevButton = document.querySelector('.carousel-button.prev');
-    const slideWidth = slides[0].getBoundingClientRect().width;
-    let currentIndex = 0;
+    let slideWidth = allSlides[0].getBoundingClientRect().width;
+    let currentIndex = 1;
 
-    const moveToSlide = (targetIndex) => {
-        track.style.transform = 'translateX(-' + slideWidth * targetIndex + 'px)';
-        currentIndex = targetIndex;
-        updateButtonsState();
-    }
+    // --- MISE EN PLACE (ne change pas) ---
+    const firstClone = allSlides[0].cloneNode(true);
+    const lastClone = allSlides[allSlides.length - 3].cloneNode(true); // Correction : on clone les vraies slides
+    firstClone.id = 'first-clone';
+    lastClone.id = 'last-clone';
+    track.append(firstClone);
+    track.prepend(lastClone);
+    const slidesWithClones = Array.from(track.children);
+    track.style.transition = 'none';
+    track.style.transform = `translateX(${-slideWidth * currentIndex}px)`;
+    setTimeout(() => {
+        track.style.transition = 'transform 0.7s cubic-bezier(0.65, 0, 0.35, 1)';
+    });
 
-    const updateButtonsState = () => {
-        prevButton.style.display = (currentIndex === 0) ? 'none' : 'block';
-        nextButton.style.display = (currentIndex === slides.length - 1) ? 'none' : 'block';
-    }
+    // --- FONCTIONS D'ACTION (NOUVEAU) ---
+    const goToNextSlide = () => {
+        if (currentIndex >= slidesWithClones.length - 1) return;
+        currentIndex++;
+        track.style.transform = `translateX(${-slideWidth * currentIndex}px)`;
+    };
+    const goToPrevSlide = () => {
+        if (currentIndex <= 0) return;
+        currentIndex--;
+        track.style.transform = `translateX(${-slideWidth * currentIndex}px)`;
+    };
 
+    // --- "SAUT MAGIQUE" (ne change pas) ---
+    track.addEventListener('transitionend', () => {
+        if (slidesWithClones[currentIndex].id === 'last-clone') {
+            track.style.transition = 'none';
+            currentIndex = slidesWithClones.length - 2;
+            track.style.transform = `translateX(${-slideWidth * currentIndex}px)`;
+            setTimeout(() => { track.style.transition = 'transform 0.7s cubic-bezier(0.65, 0, 0.35, 1)'; });
+        }
+        if (slidesWithClones[currentIndex].id === 'first-clone') {
+            track.style.transition = 'none';
+            currentIndex = 1;
+            track.style.transform = `translateX(${-slideWidth * currentIndex}px)`;
+            setTimeout(() => { track.style.transition = 'transform 0.7s cubic-bezier(0.65, 0, 0.35, 1)'; });
+        }
+    });
+
+    // --- AUTOPLAY INTELLIGENT (CORRIGÉ) ---
+    let autoplayTimer;
+    let autoplayInterval;
+
+    const startAutoplay = () => {
+        clearInterval(autoplayInterval);
+        // L'autoplay appelle directement l'action, PAS le clic
+        autoplayInterval = setInterval(goToNextSlide, 5000);
+    };
+
+    const resetAutoplayTimer = () => {
+        clearTimeout(autoplayTimer);
+        clearInterval(autoplayInterval);
+        autoplayTimer = setTimeout(startAutoplay, 20000);
+    };
+
+    // LES ÉVÉNEMENTS UTILISATEUR
     nextButton.addEventListener('click', () => {
-        if (currentIndex < slides.length - 1) moveToSlide(currentIndex + 1);
+        goToNextSlide();      // Déclenche l'action
+        resetAutoplayTimer(); // ET réinitialise le minuteur d'inactivité
     });
 
     prevButton.addEventListener('click', () => {
-        if (currentIndex > 0) moveToSlide(currentIndex - 1);
+        goToPrevSlide();      // Déclenche l'action
+        resetAutoplayTimer(); // ET réinitialise le minuteur d'inactivité
     });
-    
-    updateButtonsState(); // Pour cacher la flèche "précédent" au chargement
+
+    // GESTION REDIMENSIONNEMENT (ne change pas, mais important)
+    window.addEventListener('resize', () => {
+        slideWidth = allSlides[0].getBoundingClientRect().width;
+        track.style.transition = 'none';
+        track.style.transform = `translateX(${-slideWidth * currentIndex}px)`;
+        setTimeout(() => { track.style.transition = 'transform 0.7s cubic-bezier(0.65, 0, 0.35, 1)'; });
+    });
+
+    // Lancement initial
+    resetAutoplayTimer();
 }
 
 });
