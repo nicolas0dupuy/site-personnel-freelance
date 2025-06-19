@@ -15,20 +15,28 @@ include '../includes/header.php';
         <a href="/site-personnel-freelance/fr/contact.php" class="cta-button">Discutons de votre projet</a>
     </section>
 
-    <section class="key-strengths">
-        <div class="strength-item">
+    <section class="carousel-container" aria-label="Mes points forts">
+    <div class="carousel-track">
+
+        <div class="strength-item carousel-slide">
             <h3>Expertise Technique</h3>
             <p>Maîtrise des outils de Data Science et Machine Learning (Python, SQL, Scikit-learn) pour des solutions robustes et performantes.</p>
         </div>
-        <div class="strength-item">
+
+        <div class="strength-item carousel-slide">
             <h3>Vision Stratégique</h3>
             <p>Mon parcours atypique me donne une perspective unique pour comprendre vos enjeux métiers et traduire les données en valeur ajoutée.</p>
         </div>
-        <div class="strength-item">
+
+        <div class="strength-item carousel-slide">
             <h3>Apprentissage Continu</h3>
             <p>Passionné et curieux, je me forme en permanence sur les dernières technologies (GCP, IA Médicale) pour vous offrir le meilleur.</p>
         </div>
-    </section>
+
+    </div>
+    <button class="carousel-button prev">&lt;</button>
+    <button class="carousel-button next">&gt;</button>
+</section>
 
 
 </main>

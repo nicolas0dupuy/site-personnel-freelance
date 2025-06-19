@@ -82,12 +82,18 @@ header {
 }
 
 /* Style des points forts */
-.key-strengths {
-    display: flex; /* La magie du Flexbox pour aligner les éléments ! */
-    justify-content: space-around; /* Espace les éléments équitablement */
-    padding: 40px 20px;
+/* Nouveau style pour le conteneur principal sur ordinateur */
+.carousel-container {
     max-width: 1200px;
-    margin: 0 auto; /* Centre la section */
+    margin: 40px auto;
+    padding: 40px 20px;
+}
+
+/* La piste devient le conteneur flex sur ordinateur */
+.carousel-track {
+    display: flex;
+    transition: transform 0.7s cubic-bezier(0.65, 0, 0.35, 1);
+    justify-content: space-around;
 }
 
 .strength-item {
@@ -99,6 +105,12 @@ header {
 .menu-toggle {
     display: none; /* Le bouton est caché par défaut sur grand écran */
 }
+
+/* On cache les flèches du carrousel par défaut (sur grand écran) */
+.carousel-button {
+    display: none;
+}
+
 
 
 /* =================================== */
@@ -112,18 +124,48 @@ header {
     min-height: 60px; /* On force le header à occuper au moins 60px de hauteur */
     }
 
-    /* --- POINTS FORTS --- */
-    /* On change l'organisation des points forts pour qu'ils s'empilent */
-    .key-strengths {
-        flex-direction: column; /* La direction de flexbox devient verticale */
-        align-items: center;    /* On centre les éléments qui sont maintenant en colonne */
-    }
+/* --- Styles du Carrousel --- */
+.carousel-container {
+    position: relative;
+    width: 90%;
+    margin: 40px auto;
+    overflow: hidden; /* Cache les slides qui dépassent */
+}
 
-    /* On redonne aux points forts une largeur convenable sur petit écran */
-    .strength-item {
-        max-width: 90%; /* L'élément peut prendre presque toute la largeur de l'écran */
-        margin-bottom: 30px; /* On ajoute de l'espace en bas entre chaque élément */
-    }
+.carousel-track {
+    display: flex;
+    width: 300%; /* 3 slides * 100% de largeur chacune */
+    transition: transform 0.5s ease-in-out; /* Animation de la glisse */
+}
+
+.carousel-slide {
+    width: 33.3333%;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.carousel-button.prev {
+    left: 10px;
+}
+
+.carousel-button.next {
+    right: 10px;
+}
 
 
     /* --- MENU DE NAVIGATION --- */

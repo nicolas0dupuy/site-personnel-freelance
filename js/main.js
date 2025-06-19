@@ -13,5 +13,37 @@ document.addEventListener('DOMContentLoaded', function() {
             mainNav.classList.toggle('is-open');
         });
     }
+    // --- Logique du Carrousel ---
+const track = document.querySelector('.carousel-track');
+
+// On exécute le code seulement si le carrousel existe sur la page
+if (track) {
+    const slides = Array.from(track.children);
+    const nextButton = document.querySelector('.carousel-button.next');
+    const prevButton = document.querySelector('.carousel-button.prev');
+    const slideWidth = slides[0].getBoundingClientRect().width;
+    let currentIndex = 0;
+
+    const moveToSlide = (targetIndex) => {
+        track.style.transform = 'translateX(-' + slideWidth * targetIndex + 'px)';
+        currentIndex = targetIndex;
+        updateButtonsState();
+    }
+
+    const updateButtonsState = () => {
+        prevButton.style.display = (currentIndex === 0) ? 'none' : 'block';
+        nextButton.style.display = (currentIndex === slides.length - 1) ? 'none' : 'block';
+    }
+
+    nextButton.addEventListener('click', () => {
+        if (currentIndex < slides.length - 1) moveToSlide(currentIndex + 1);
+    });
+
+    prevButton.addEventListener('click', () => {
+        if (currentIndex > 0) moveToSlide(currentIndex - 1);
+    });
+    
+    updateButtonsState(); // Pour cacher la flèche "précédent" au chargement
+}
 
 });
