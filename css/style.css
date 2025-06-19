@@ -95,3 +95,87 @@ header {
     max-width: 30%; /* Chaque élément prend environ un tiers de la largeur */
     padding: 0 15px;
 }
+
+.menu-toggle {
+    display: none; /* Le bouton est caché par défaut sur grand écran */
+}
+
+
+/* =================================== */
+/* MEDIA QUERIES              */
+/* =================================== */
+
+/* Pour les tablettes et les mobiles (écrans de 768px de large ou moins) */
+@media (max-width: 768px) {
+
+    header {
+    min-height: 60px; /* On force le header à occuper au moins 60px de hauteur */
+    }
+
+    /* --- POINTS FORTS --- */
+    /* On change l'organisation des points forts pour qu'ils s'empilent */
+    .key-strengths {
+        flex-direction: column; /* La direction de flexbox devient verticale */
+        align-items: center;    /* On centre les éléments qui sont maintenant en colonne */
+    }
+
+    /* On redonne aux points forts une largeur convenable sur petit écran */
+    .strength-item {
+        max-width: 90%; /* L'élément peut prendre presque toute la largeur de l'écran */
+        margin-bottom: 30px; /* On ajoute de l'espace en bas entre chaque élément */
+    }
+
+
+    /* --- MENU DE NAVIGATION --- */
+    /* On adapte aussi le menu pour qu'il soit lisible */
+    nav ul li {
+    display: block;
+    text-align: center; /* On ajoute cette ligne pour centrer le texte */
+    margin: 15px 0;
+    }
+    
+    /* --- HÉROS --- */
+    /* On peut aussi ajuster la taille des textes pour un meilleur confort de lecture */
+    .hero h1 {
+        font-size: 2.2em; /* Un peu plus petit pour ne pas prendre tout l'écran */
+    }
+     .hero h2 {
+        font-size: 1.1em;
+    }
+
+    /* --- Bouton Hamburger --- */
+.menu-toggle {
+    display: block; /* On fait apparaître le bouton sur mobile */
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1000; /* Pour qu'il soit toujours au premier plan */
+}
+.menu-toggle .bar { /* On dessine les 3 barres du bouton */
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 5px 0;
+}
+
+/* --- Le menu de navigation en mode mobile --- */
+nav#main-nav {
+    display: none; /* On cache le menu par défaut */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    padding-top: 60px; /* Un peu d'espace en haut */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Une petite ombre pour le style */
+}
+
+/* Cette classe sera ajoutée par le JavaScript pour AFFICHER le menu */
+nav#main-nav.is-open {
+    display: block;
+}
+}

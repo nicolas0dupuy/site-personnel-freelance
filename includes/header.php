@@ -29,7 +29,13 @@ $en_link = "/site-personnel-freelance/en/" . $current_page;
         <a href="<?php echo $en_link; ?>"><img src="/site-personnel-freelance/images/drapeau-uk.svg" alt="English Version" width="24"></a>
     </div>
 
-    <nav>
+    <button id="menu-toggle" class="menu-toggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+
+    <nav id="main-nav">
         <ul>
             <li><a href="/site-personnel-freelance/<?php echo $lang; ?>/">Accueil</a></li>
             <li><a href="/site-personnel-freelance/<?php echo $lang; ?>/expertise.php">Expertise</a></li>
