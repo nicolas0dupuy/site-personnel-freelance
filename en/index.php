@@ -2,10 +2,9 @@
 
 <main>
     <section class="hero">
-        <h1>Nicolas Dupuy</h1>
-        <h2>Scientific rigor at the service of your data.</h2>
-        <p class="subtitle">From particle physics to data science, I transform your complex data into clear insights and strategic decisions.</p>
-        <a href="<?php echo SITE_URL; ?>/en/contact.php" class="cta-button">Discuss your project</a>
+        <h1>Nicolas Dupuy - Data, Machine Learning & Modélisation Scientifique</h1>
+        <p class="subtitle">Née d'années de recherche académique à la croisée des domaines, ma polyvalence me permet de résoudre vos défis data & ML par les moyens les plus variés. Je renforce vos équipes en apportant ma capacité d'analyse et une rigueur scientifique de niveau doctoral, de la modélisation théorique au développement de solutions pratiques, en passant par divers services connexes.</p>
+        <a href="<?php echo SITE_URL; ?>/fr/contact.php" class="cta-button">Discutons de votre projet</a>
     </section>
 
     <section class="carousel-container" aria-label="My key strengths">

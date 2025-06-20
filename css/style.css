@@ -4,18 +4,50 @@
 
 /* :root est un endroit idéal pour déclarer des variables globales */
 :root {
-    --primary-color: #007bff;
-    --primary-color-hover: #0056b3;
-    --text-color-dark: #333;
-    --background-light-gray: #f9f9f9;
-    --border-light-gray: #f4f4f4;
+    /* Palette "Mer Sombre" */
+    --background-dark: #0f172a; /* Un bleu très sombre, presque noir */
+    --background-wave: #1e293b; /* Un bleu ardoise pour la "vague" */
+    --text-light: #e2e8f0;      /* Un blanc cassé, plus doux pour les yeux */
+    --text-muted: #94a3b8;      /* Un gris clair pour les textes secondaires */
+    --accent-color: #22d3ee;    /* Un cyan/turquoise vif pour les accents (liens, boutons) */
+    --accent-color-hover: #67e8f9;
 }
 
 body {
     font-family: sans-serif;
     line-height: 1.6;
-    margin: 0; /* Bonne pratique de retirer les marges par défaut du body */
-    padding: 0; /* Bonne pratique de retirer le padding par défaut du body */
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-dark); /* On applique le fond sombre */
+    color: var(--text-light);                 /* On applique le texte clair */
+}
+
+/* Création de la couche d'arrière-plan animée */
+body::before {
+    content: '';
+    position: fixed; /* L'arrière-plan reste fixe quand on scrolle */
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: -1; /* On le place derrière tout le contenu */
+
+    /* Le dégradé qui forme la "vague" */
+    background: linear-gradient(125deg, 
+        var(--background-dark), 
+        var(--background-wave), 
+        var(--background-dark)
+    );
+    background-size: 400% 400%; /* On crée un dégradé 4x plus grand que l'écran */
+
+    /* On applique l'animation */
+    animation: subtle-wave 25s ease-in-out infinite;
+}
+
+/* Définition de l'animation */
+@keyframes subtle-wave {
+    0%   { background-position: 0% 50%; }
+    25%  { background-position: 100% 50%; }
+    50%  { background-position: 100% 0%; }
+    75%  { background-position: 0% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 main {
@@ -29,7 +61,8 @@ main {
 /* --- Header & Navigation --- */
 header {
     position: relative;
-    background-color: var(--border-light-gray); /* Utilisation d'une variable */
+    /* background-color: var(--border-light-gray); On supprime cette ligne */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* On ajoute une ligne de séparation subtile */
 }
 
 nav ul {
@@ -46,12 +79,12 @@ nav ul li {
 
 nav a {
     text-decoration: none;
-    color: var(--text-color-dark); /* Utilisation d'une variable */
+    color: var(--text-light); /* Utilisation de notre nouvelle variable */
     font-weight: bold;
 }
 
 nav a:hover {
-    color: var(--primary-color); /* Utilisation d'une variable */
+    color: var(--accent-color); /* Le cyan vif au survol */
 }
 
 /* --- Language Switcher --- */
@@ -71,7 +104,7 @@ nav a:hover {
 .hero {
     text-align: center;
     padding: 60px 20px;
-    background-color: var(--background-light-gray); /* Utilisation d'une variable */
+    /* background-color: var(--background-light-gray); On supprime cette ligne */
 }
 
 .hero h1 {
@@ -79,10 +112,10 @@ nav a:hover {
 }
 
 .hero h2 {
-    margin-bottom: 20px;
-    font-weight: normal;
-    color: #555;
+    color: var(--text-muted); /* On utilise le gris clair pour le sous-titre */
 }
+
+
 
 .hero .subtitle {
     max-width: 600px;
@@ -91,18 +124,18 @@ nav a:hover {
 
 /* --- Bouton d'Appel à l'Action (CTA) --- */
 .cta-button {
-    background-color: var(--primary-color); /* Utilisation d'une variable */
-    color: white;
-    padding: 12px 25px;
-    border-radius: 5px;
+    background-color: var(--accent-color);
+    color: var(--background-dark);
+    padding: 12px 30px; /* Augmenté pour plus d'espace */
+    border-radius: 40px; /* Une valeur élevée pour un effet "pilule" très moderne */
     text-decoration: none;
     font-weight: bold;
     transition: background-color 0.3s;
 }
 
 .cta-button:hover {
-    background-color: var(--primary-color-hover); /* Utilisation d'une variable */
-    color: white;
+    background-color: var(--accent-color-hover);
+    color: var(--background-dark);
 }
 
 /* --- Carrousel (Vue Ordinateur) --- */
@@ -129,7 +162,6 @@ nav a:hover {
     display: none; /* On cache les boutons de menu mobile et carrousel par défaut */
 }
 
-
 /* =================================== */
 /* 3. MEDIA QUERIES (STYLES MOBILES)   */
 /* =================================== */
@@ -137,11 +169,12 @@ nav a:hover {
 /* Pour les tablettes et les mobiles (écrans de 768px de large ou moins) */
 @media (max-width: 768px) {
 
+    /* --- STRUCTURE GÉNÉRALE --- */
     header {
         min-height: 60px;
     }
 
-    /* --- Héros (Mobile) --- */
+    /* --- HÉROS (Mobile) --- */
     .hero h1 {
         font-size: 2.2em;
     }
@@ -149,9 +182,78 @@ nav a:hover {
         font-size: 1.1em;
     }
 
-    /* --- Menu Hamburger (Mobile) --- */
+    /* --- MENU HAMBURGER (Mobile) --- */
     .menu-toggle {
         display: block;
         position: absolute;
         top: 15px;
         left: 20px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        z-index: 1000;
+    }
+    .menu-toggle .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: var(--text-light); /* Couleur claire pour le thème sombre */
+        margin: 5px 0;
+    }
+    nav#main-nav {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: var(--background-dark); /* Fond sombre pour le menu */
+        padding-top: 60px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    nav#main-nav.is-open {
+        display: block;
+    }
+    nav ul li {
+        display: block;
+        text-align: center;
+        margin: 15px 0;
+    }
+    
+    /* --- CARROUSEL (Mobile) --- */
+    .carousel-container {
+        position: relative;
+        width: 90%;
+        overflow: hidden;
+    }
+    .carousel-track {
+        width: 500%;
+        transition: transform 0.7s cubic-bezier(0.65, 0, 0.35, 1);
+        display: flex; /* On s'assure qu'il est bien flex ici aussi */
+        justify-content: initial; /* On annule le space-around du desktop */
+        position: relative; /* Crée un contexte de superposition pour la piste */
+        z-index: 1;         /* La met sur la première couche */
+    }
+    .carousel-slide {
+        width: 20%;
+        box-sizing: border-box;
+        flex-basis: auto; /* On annule le flex-basis du desktop */
+        max-width: initial; /* On annule le max-width du desktop */
+    }
+    .carousel-button {
+        display: block;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(255,255,255,0.2);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        font-size: 24px;
+        cursor: pointer;
+        z-index: 100;
+    }
+    .carousel-button.prev { left: 10px; }
+    .carousel-button.next { right: 10px; }
+}

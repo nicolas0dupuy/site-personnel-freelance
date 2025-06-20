@@ -9,9 +9,8 @@ error_reporting(E_ALL);
 <main>
 
     <section class="hero">
-        <h1>Nicolas Dupuy</h1>
-        <h2>La rigueur scientifique au service de vos données.</h2>
-        <p class="subtitle">De la physique des particules à la data science, je transforme vos données complexes en informations claires et en décisions stratégiques.</p>
+        <h1>Nicolas Dupuy - Data, Machine Learning & Modélisation Scientifique</h1>
+        <p class="subtitle">Née d'années de recherche académique à la croisée des domaines, ma polyvalence me permet de résoudre vos défis data & ML par les moyens les plus variés. Je renforce vos équipes en apportant ma capacité d'analyse et une rigueur scientifique de niveau doctoral, de la modélisation théorique au développement de solutions pratiques, en passant par divers services connexes.</p>
         <a href="<?php echo SITE_URL; ?>/fr/contact.php" class="cta-button">Discutons de votre projet</a>
     </section>
 
