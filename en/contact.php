@@ -1,18 +1,8 @@
-<?php
-// Définition des variables spécifiques à la page
-$lang = 'en';
-$page_title = 'Mon contact | Nicolas Dupuy';
-
-// Inclusion du header
-include '../includes/header.php';
-?>
+<?php include __DIR__ . '/../includes/header.php'; ?>
 
 <main>
-    <h1>Mon Expertise</h1>
-    <p>Eng : Le contenu de la page contact viendra ici.</p>
+    <h1>Contact Me</h1>
+    <p>The contact form and information will go here.</p>
 </main>
 
-<?php
-// Inclusion du footer
-include '../includes/footer.php';
-?>
+<?php include __DIR__ . '/../includes/footer.php'; ?>

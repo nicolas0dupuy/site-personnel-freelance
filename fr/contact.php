@@ -4,7 +4,7 @@ $lang = 'fr';
 $page_title = 'Mon contact | Nicolas Dupuy';
 
 // Inclusion du header
-include '../includes/header.php';
+include __DIR__ . '/../includes/header.php';
 ?>
 
 <main>
@@ -14,5 +14,5 @@ include '../includes/header.php';
 
 <?php
 // Inclusion du footer
-include '../includes/footer.php';
+include __DIR__ . '/../includes/footer.php';
 ?>

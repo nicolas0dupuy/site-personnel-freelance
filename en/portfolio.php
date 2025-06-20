@@ -1,18 +1,8 @@
-<?php
-// Définition des variables spécifiques à la page
-$lang = 'en';
-$page_title = 'Mon portfolio | Nicolas Dupuy';
-
-// Inclusion du header
-include '../includes/header.php';
-?>
+<?php include __DIR__ . '/../includes/header.php'; ?>
 
 <main>
-    <h1>Mon Expertise</h1>
-    <p>Eng :  Mon portfolio viendra ici.</p>
+    <h1>Portfolio</h1>
+    <p>My professional and personal projects will be showcased here.</p>
 </main>
 
-<?php
-// Inclusion du footer
-include '../includes/footer.php';
-?>
+<?php include __DIR__ . '/../includes/footer.php'; ?>
