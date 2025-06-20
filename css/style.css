@@ -20,6 +20,8 @@ body {
     padding: 0;
     background-color: var(--background-dark); /* On applique le fond sombre */
     color: var(--text-light);                 /* On applique le texte clair */
+    padding-top: 70px; 
+    padding-bottom: 50px;
 }
 
 /* Création de la couche d'arrière-plan animée */
@@ -38,7 +40,7 @@ body::before {
     background-size: 400% 400%; /* On crée un dégradé 4x plus grand que l'écran */
 
     /* On applique l'animation */
-    animation: subtle-wave 25s ease-in-out infinite;
+    /* animation: subtle-wave 25s ease-in-out infinite; */
 }
 
 /* Définition de l'animation */
@@ -59,11 +61,33 @@ main {
 /* =================================== */
 
 /* --- Header & Navigation --- */
+/* --- Header & Navigation --- */
+/* --- Header & Navigation --- */
 header {
-    position: relative;
-    /* background-color: var(--border-light-gray); On supprime cette ligne */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* On ajoute une ligne de séparation subtile */
+    position: fixed;
+    top: 0;    
+    width: 100%; 
+    z-index: 1000;
+
+    background-color: var(--background-dark);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* On remet la bordure en bas */
 }
+
+footer {
+    position: fixed; 
+    bottom: 0;       
+    left: 0;         
+    width: 100%;     
+    z-index: 1000;   
+
+    padding: 10px 20px; 
+    background-color: var(--background-dark);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    font-size: 0.8em; 
+    color: var(--text-muted);
+}
+
 
 nav ul {
     list-style-type: none;
@@ -162,6 +186,47 @@ nav a:hover {
     display: none; /* On cache les boutons de menu mobile et carrousel par défaut */
 }
 
+/* --- Composant Item de Parcours --- */
+.parcours-item {
+    background-color: rgba(255, 255, 255, 0.05); /* Un fond très subtil pour délimiter */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 30px;
+}
+.parcours-item h2 {
+    margin-top: 0;
+    color: var(--accent-color);
+}
+.parcours-meta {
+    font-size: 0.9em;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+.page-intro { /* Pour le paragraphe d'intro de la page */
+    font-size: 1.1em;
+    color: var(--text-muted);
+    max-width: 800px;
+    margin-bottom: 40px;
+}
+details {
+    margin-top: 20px;
+}
+summary {
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--accent-color-hover);
+}
+summary:hover {
+    text-decoration: underline;
+}
+.details-content {
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 10px;
+}
+
+
 /* =================================== */
 /* 3. MEDIA QUERIES (STYLES MOBILES)   */
 /* =================================== */
@@ -201,14 +266,15 @@ nav a:hover {
         margin: 5px 0;
     }
     nav#main-nav {
-        display: none;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background-color: var(--background-dark); /* Fond sombre pour le menu */
-        padding-top: 60px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    display: none;
+    position: absolute;
+    top: 0; /* On le repositionne en haut */
+    left: 0;
+    width: 100%;
+    background-color: var(--background-dark);
+    padding-top: 60px; /* On remet le padding en haut */
+    padding-bottom: 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* L'ombre est de nouveau vers le bas */
     }
     nav#main-nav.is-open {
         display: block;
