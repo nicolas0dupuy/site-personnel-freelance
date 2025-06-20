@@ -1,54 +1,77 @@
-/* Pour commencer en douceur, une police plus agréable */
+/* =================================== */
+/* 1. VARIABLES & STYLES GÉNÉRAUX      */
+/* =================================== */
+
+/* :root est un endroit idéal pour déclarer des variables globales */
+:root {
+    --primary-color: #007bff;
+    --primary-color-hover: #0056b3;
+    --text-color-dark: #333;
+    --background-light-gray: #f9f9f9;
+    --border-light-gray: #f4f4f4;
+}
+
 body {
     font-family: sans-serif;
     line-height: 1.6;
+    margin: 0; /* Bonne pratique de retirer les marges par défaut du body */
+    padding: 0; /* Bonne pratique de retirer le padding par défaut du body */
 }
 
-/* On met en forme la navigation */
+main {
+    transition: padding-top 0.4s ease; /* Pour l'animation du menu mobile */
+}
+
+/* =================================== */
+/* 2. STYLES DES COMPOSANTS            */
+/* =================================== */
+
+/* --- Header & Navigation --- */
+header {
+    position: relative;
+    background-color: var(--border-light-gray); /* Utilisation d'une variable */
+}
+
 nav ul {
-    background-color: #f4f4f4;
-    list-style-type: none; /* Enlève les puces */
+    list-style-type: none;
     padding: 15px;
     margin: 0;
-    text-align: center; /* Centre le menu */
+    text-align: center;
 }
 
 nav ul li {
-    display: inline-block; /* Met les éléments sur la même ligne */
-    margin: 0 15px; /* Ajoute de l'espace horizontal entre les liens */
+    display: inline-block;
+    margin: 0 15px;
 }
 
 nav a {
-    text-decoration: none; /* Enlève le soulignement des liens */
-    color: #333; /* Change la couleur du lien en gris foncé */
+    text-decoration: none;
+    color: var(--text-color-dark); /* Utilisation d'une variable */
     font-weight: bold;
 }
 
 nav a:hover {
-    color: #007bff; /* Change la couleur au survol */
+    color: var(--primary-color); /* Utilisation d'une variable */
 }
 
-/* Positionnement du sélecteur de langue */
-header {
-    position: relative; /* Nécessaire pour positionner un enfant en absolu */
-}
-
+/* --- Language Switcher --- */
 .language-switcher {
     position: absolute;
     top: 15px;
     right: 20px;
+    z-index: 10; /* S'assure qu'il est au-dessus du menu de bureau */
 }
 
 .language-switcher img {
     margin-left: 10px;
-    vertical-align: middle; /* Aligne mieux les images avec le texte alentour */
+    vertical-align: middle;
 }
 
-/* Style de la section Héros */
+/* --- Section Héros --- */
 .hero {
     text-align: center;
     padding: 60px 20px;
-    background-color: #f9f9f9;
+    background-color: var(--background-light-gray); /* Utilisation d'une variable */
 }
 
 .hero h1 {
@@ -66,8 +89,9 @@ header {
     margin: 0 auto 30px auto;
 }
 
+/* --- Bouton d'Appel à l'Action (CTA) --- */
 .cta-button {
-    background-color: #007bff;
+    background-color: var(--primary-color); /* Utilisation d'une variable */
     color: white;
     padding: 12px 25px;
     border-radius: 5px;
@@ -77,169 +101,57 @@ header {
 }
 
 .cta-button:hover {
-    background-color: #0056b3;
-    color: white; /* On s'assure que la couleur du texte ne change pas */
+    background-color: var(--primary-color-hover); /* Utilisation d'une variable */
+    color: white;
 }
 
-/* Style des points forts */
-/* Nouveau style pour le conteneur principal sur ordinateur */
+/* --- Carrousel (Vue Ordinateur) --- */
 .carousel-container {
     max-width: 1200px;
     margin: 40px auto;
     padding: 40px 20px;
 }
 
-/* La piste devient le conteneur flex sur ordinateur */
 .carousel-track {
     display: flex;
-    transition: transform 0.7s cubic-bezier(0.65, 0, 0.35, 1);
     justify-content: space-around;
+    /* La transition est déplacée dans la media query car elle n'est utile que sur mobile */
 }
 
 .strength-item {
     text-align: center;
-    max-width: 30%; /* Chaque élément prend environ un tiers de la largeur */
+    flex-basis: 30%; /* flex-basis est mieux que max-width dans un contexte flex */
     padding: 0 15px;
 }
 
-.menu-toggle {
-    display: none; /* Le bouton est caché par défaut sur grand écran */
-}
-
-/* On cache les flèches du carrousel par défaut (sur grand écran) */
+.menu-toggle,
 .carousel-button {
-    display: none;
+    display: none; /* On cache les boutons de menu mobile et carrousel par défaut */
 }
-
 
 
 /* =================================== */
-/* MEDIA QUERIES              */
+/* 3. MEDIA QUERIES (STYLES MOBILES)   */
 /* =================================== */
 
 /* Pour les tablettes et les mobiles (écrans de 768px de large ou moins) */
 @media (max-width: 768px) {
 
     header {
-    min-height: 60px; /* On force le header à occuper au moins 60px de hauteur */
+        min-height: 60px;
     }
 
-/* --- Styles du Carrousel --- */
-.carousel-container {
-    position: relative;
-    width: 90%;
-    margin: 40px auto;
-    overflow: hidden; /* Cache les slides qui dépassent */
-}
-
-.carousel-track {
-    display: flex;
-    /* La piste fait maintenant 5x la largeur (5 slides) */
-    width: 500%; 
-    /* La transition ne change pas */
-    transition: transform 0.7s cubic-bezier(0.65, 0, 0.35, 1);
-    /* NOUVEAU : On applique la position initiale depuis le JS, donc on s'assure que le CSS est bon */
-    /* On va positionner le track au début depuis le JS */
-}
-
-.carousel-slide {
-    /* Chaque slide prend 1/5 de la piste (100% / 5 = 20%) */
-    width: 20%; 
-    padding: 0 15px;
-    box-sizing: border-box;
-}
-
-.carousel-button {
-    display: block;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0,0,0,0.5);
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    font-size: 24px;
-    cursor: pointer;
-    z-index: 100;
-}
-
-.carousel-button.prev {
-    left: 10px;
-}
-
-.carousel-button.next {
-    right: 10px;
-}
-
-
-    /* --- MENU DE NAVIGATION --- */
-    /* On adapte aussi le menu pour qu'il soit lisible */
-    nav ul li {
-    display: block;
-    text-align: center; /* On ajoute cette ligne pour centrer le texte */
-    margin: 15px 0;
-    }
-    
-    /* --- HÉROS --- */
-    /* On peut aussi ajuster la taille des textes pour un meilleur confort de lecture */
+    /* --- Héros (Mobile) --- */
     .hero h1 {
-        font-size: 2.2em; /* Un peu plus petit pour ne pas prendre tout l'écran */
+        font-size: 2.2em;
     }
      .hero h2 {
         font-size: 1.1em;
     }
 
-    /* --- Bouton Hamburger --- */
-.menu-toggle {
-    display: block; /* On fait apparaître le bouton sur mobile */
-    position: absolute;
-    top: 15px;
-    left: 20px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    z-index: 1000; /* Pour qu'il soit toujours au premier plan */
-}
-.menu-toggle .bar { /* On dessine les 3 barres du bouton */
-    display: block;
-    width: 25px;
-    height: 3px;
-    background-color: #333;
-    margin: 5px 0;
-}
-
-/* --- Le menu de navigation en mode mobile --- */
-nav#main-nav {
-    display: none; /* On cache le menu par défaut */
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: white;
-    padding-top: 60px; /* Un peu d'espace en haut */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Une petite ombre pour le style */
-}
-
-/* Cette classe sera ajoutée par le JavaScript pour AFFICHER le menu */
-nav#main-nav.is-open {
-    display: block;
-}
-}
-
-
-/* Styles spécifiques pour les grands écrans (plus larges que 768px) */
-@media (min-width: 769px) {
-    /* On cache les slides qui ont été clonées par le JS */
-    #first-clone,
-    #last-clone {
-        display: none;
-    }
-
-    /* NOUVELLE RÈGLE CI-DESSOUS */
-    /* On force la piste à ne pas être décalée par le JavaScript */
-    .carousel-track {
-        transform: translateX(0) !important;
-    }
-}
+    /* --- Menu Hamburger (Mobile) --- */
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        top: 15px;
+        left: 20px;
