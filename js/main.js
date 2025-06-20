@@ -72,13 +72,13 @@ if (track) {
     const startAutoplay = () => {
         clearInterval(autoplayInterval);
         // L'autoplay appelle directement l'action, PAS le clic
-        autoplayInterval = setInterval(goToNextSlide, 5000);
+        autoplayInterval = setInterval(goToNextSlide, 8000);
     };
 
     const resetAutoplayTimer = () => {
         clearTimeout(autoplayTimer);
         clearInterval(autoplayInterval);
-        autoplayTimer = setTimeout(startAutoplay, 20000);
+        autoplayTimer = setTimeout(startAutoplay, 15000);
     };
 
     // LES ÉVÉNEMENTS UTILISATEUR
