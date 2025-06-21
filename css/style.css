@@ -226,6 +226,70 @@ summary:hover {
     margin-top: 10px;
 }
 
+/* --- Style pour le sommaire de page (version déroulante) --- */
+.page-nav {
+    margin: 40px 0; /* Espace avant et après le sommaire */
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.page-nav details {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Le titre visible du menu déroulant */
+.page-nav summary {
+    cursor: pointer;
+    padding: 15px 20px;
+    font-weight: bold;
+    list-style: none; /* Cache la petite flèche par défaut du navigateur */
+    transition: color 0.3s;
+}
+.page-nav summary:hover {
+    color: var(--accent-color);
+}
+
+/* On ajoute notre propre flèche pour le style */
+.page-nav summary::after {
+    content: ' ▼'; /* Flèche vers le bas quand le menu est fermé */
+    font-size: 0.8em;
+    float: right;
+    transition: transform 0.3s;
+}
+
+/* On fait pivoter la flèche quand le menu est ouvert */
+.page-nav details[open] summary::after {
+    transform: rotate(180deg);
+}
+
+/* La liste des liens à l'intérieur */
+.page-nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.page-nav li {
+    padding: 0;
+}
+
+.page-nav a {
+    display: block; /* Pour que toute la zone soit cliquable */
+    padding: 12px 20px;
+    text-decoration: none;
+    color: var(--text-muted);
+}
+
+.page-nav a:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--accent-color);
+}
+
+
 
 /* =================================== */
 /* 3. MEDIA QUERIES (STYLES MOBILES)   */
