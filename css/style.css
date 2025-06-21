@@ -289,6 +289,31 @@ summary:hover {
     color: var(--accent-color);
 }
 
+/* --- Style pour les Blocs de Service --- */
+.service-block {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 25px 30px;
+    margin-bottom: 30px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.service-block h3 {
+    margin-top: 0;
+    color: var(--accent-color);
+    font-size: 1.5em;
+}
+
+.service-block ul {
+    padding-left: 20px;
+}
+
+.service-block li {
+    margin-bottom: 10px;
+}
 
 
 /* =================================== */
