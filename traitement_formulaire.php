@@ -35,23 +35,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // La fonction mail() de PHP tente d'envoyer l'email.
         if (mail($destinataire, $sujet_email, $corps_email, $headers)) {
             // Si l'envoi réussit, on redirige l'utilisateur vers une page de remerciement.
-            header("Location: merci.php");
+            header("Location: merci.php?lang=" . $lang_form);
             exit;
         } else {
             // Si l'envoi échoue, on redirige vers une page d'erreur.
-            header("Location: erreur.php");
+            header("Location: erreur.php?lang=" . $lang_form);
             exit;
         }
 
     } else {
         // Si des données sont manquantes ou invalides, on redirige vers la page d'erreur.
-        header("Location: erreur.php");
+        header("Location: erreur.php?lang=" . $lang_form);
         exit;
     }
 
 } else {
     // Si quelqu'un essaie d'accéder à ce fichier directement sans passer par le formulaire, on le redirige.
-    header("Location: contact.php");
+    header("Location: contact.php?lang=" . $lang_form);
     exit;
 }
 ?>

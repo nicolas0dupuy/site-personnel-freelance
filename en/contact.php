@@ -16,7 +16,8 @@
     }
     ?>
 
-    <form action="traitement_formulaire.php" method="POST" class="contact-form">
+    <form action="<?php echo SITE_URL; ?>/traitement_formulaire.php" method="POST" class="contact-form">
+        <input type="hidden" name="lang" value="<?php echo $current_lang; ?>">
         
         <div class="form-group">
             <label for="nom">Your Name:</label>
