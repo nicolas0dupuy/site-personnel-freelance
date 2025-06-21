@@ -28,6 +28,9 @@
             <li>Reliability testing, optimization, and explanation of predictive models.</li>
             <li>Support and prototyping on Google Cloud Platform (GCP) (BigQuery, Looker Studio, Vertex AI).</li>
         </ul>
+        <div class="service-cta">
+            <a href="contact.php?service=data-science-fondamental" class="cta-button-small">Contact me for this service</a>
+        </div>
     </article>
 
     <article class="service-block" id="services-recherche">
@@ -38,6 +41,9 @@
             <li><strong>AI for Finance:</strong> Time series modeling, quantitative risk analysis, prototyping fraud detection solutions.</li>
             <li><strong>Scientific Simulation & Modeling:</strong> AI methods (Deep Learning) or deterministic/Monte Carlo numerical methods.</li>
         </ul>
+        <div class="service-cta">
+            <a href="contact.php?service=recherche-ia" class="cta-button-small">Contact me for this service</a>
+        </div>
     </article>
 
     <article class="service-block" id="services-outils">
@@ -48,6 +54,9 @@
             <li>Development of custom scripts (Python) for processing automation.</li>
             <li>Building simple web interfaces (PHP, JavaScript, SQL) to present analysis results.</li>
         </ul>
+        <div class="service-cta">
+            <a href="contact.php?service=outils-sur-mesure" class="cta-button-small">Contact me for this service</a>
+        </div>
     </article>
 
     <article class="service-block" id="services-formation">
@@ -59,6 +68,9 @@
             <li>Practical Machine Learning workshops for developer or analyst teams.</li>
             <li>Creation of custom course materials and personalized learning paths.</li>
         </ul>
+        <div class="service-cta">
+            <a href="contact.php?service=formation" class="cta-button-small">Contact me for this service</a>
+        </div>
     </article>
 
 </main>

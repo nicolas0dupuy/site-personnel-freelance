@@ -28,6 +28,9 @@
             <li>Fiabilisation, optimisation et explication des modèles prédictifs.</li>
             <li>Accompagnement et prototypage sur Google Cloud Platform (GCP) (BigQuery, Looker Studio, Vertex AI).</li>
         </ul>
+        <div class="service-cta">
+            <a href="contact.php?service=data-science-fondamental" class="cta-button-small">Me contacter pour ce service</a>
+        </div>
     </article>
 
     <article class="service-block" id="services-recherche">
@@ -38,6 +41,9 @@
             <li><strong>IA pour la Finance :</strong> Modélisation de séries temporelles, analyse quantitative de risque, prototypage de solutions pour la détection de fraude.</li>
             <li><strong>Simulation & Modélisation Scientifique :</strong> méthodes IA (Deep Learning) ou méthodes numériques déterministes/Monte Carlo.</li>
         </ul>
+        <div class="service-cta">
+            <a href="contact.php?service=recherche-ia" class="cta-button-small">Me contacter pour ce service</a>
+        </div>
     </article>
 
     <article class="service-block" id="services-outils">
@@ -48,6 +54,9 @@
             <li>Développement de scripts sur-mesure (Python) pour l'automatisation de traitements.</li>
             <li>Réalisation d'interfaces web simples (PHP, JavaScript, SQL) pour présenter des résultats.</li>
         </ul>
+        <div class="service-cta">
+            <a href="contact.php?service=outils-sur-mesure" class="cta-button-small">Me contacter pour ce service</a>
+        </div>
     </article>
 
     <article class="service-block" id="services-formation">
@@ -59,6 +68,9 @@
             <li>Ateliers pratiques de Machine Learning pour des équipes de développeurs ou d'analystes.</li>
             <li>Création de supports de cours et de parcours pédagogiques personnalisés.</li>
         </ul>
+        <div class="service-cta">
+            <a href="contact.php?service=formation" class="cta-button-small">Me contacter pour ce service</a>
+        </div>
     </article>
 
 </main>

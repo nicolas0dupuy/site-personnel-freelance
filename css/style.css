@@ -315,6 +315,27 @@ summary:hover {
     margin-bottom: 10px;
 }
 
+.service-cta {
+    text-align: right; /* Aligne le bouton à droite du bloc */
+    margin-top: 20px;
+}
+
+.cta-button-small {
+    /* On reprend le style du bouton principal mais en plus petit */
+    background-color: var(--accent-color);
+    color: var(--background-dark);
+    padding: 8px 18px; /* Padding réduit */
+    font-size: 0.9em;  /* Police réduite */
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.cta-button-small:hover {
+    background-color: var(--accent-color-hover);
+    color: var(--background-dark);
+}
 
 /* =================================== */
 /* 3. MEDIA QUERIES (STYLES MOBILES)   */
