@@ -15,15 +15,17 @@ $pages = [
         'fr' => 'Accueil',
         'en' => 'Home'
     ],
-    // Nouvelle page "Services"
     'services' => [
         'fr' => 'Services',
         'en' => 'Services'
     ],
-    // Nouvelle page "Parcours"
     'parcours' => [
         'fr' => 'Mon Parcours',
         'en' => 'My Journey'
+    ],
+    'un-autre-regard' => [
+        'fr' => 'Un Autre Regard',
+        'en' => 'A Different View'
     ],
     'portfolio' => [
         'fr' => 'Portfolio',

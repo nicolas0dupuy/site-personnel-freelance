@@ -1,0 +1,9 @@
+<?php
+
+$anecdotes_neuro = [
+    "The brain's sense of priorities. At the Big Data convention in Paris. After a few hours, the ambient noise and the concentration required for social interactions had drained my battery quite a bit. An engaging person at a booth is presenting their company's latest project, and I'm listening intently... focused on the details... but suddenly, she stops, \"Wait... Nicolas?\". It still took me another moment to recognize my friend! If I run into you in an unusual context, please don't be offended; the risk that I genuinely won't recognize you exists!",
+
+    "The ability of autistic people to concentrate deeply is well known. This was the case on the day of an English exam in my early years of study. As usual, I was about twenty minutes early, and as often happens, I seemed to be walking in circles when, in my head, imperceptibly to those who don't know me, I was reviewing everything while walking. I walk past a girl sitting on the stairs several times, greet her politely the first time, then pass by again and again, before, once more, realizing I was walking past a friend, and finally stopping to join her. Here too, once again, you should know that when I'm thinking, I might not notice that you exist!",
+    
+    "I often appear physically rigid, and this is a trait shared with many autistic people. More generally, it's a difference in body language traits; where most people are more mobile, naturally, in their body movements when communicating, also with rich facial expressions, for us, our nature is to be still. It's quite difficult to pretend not to be autistic (this is called masking) and to make sure to blink often enough, to frown a little from time to time, to smile appropriately and at the right moment... However, what often happens in video calls is that the person I'm talking to thinks my screen has frozen when I'm listening intently!"
+];
