@@ -123,4 +123,42 @@ window.addEventListener('load', function() {
     initMobileMenu();
     initCarousel();
 
+    /**
+     * Gère le rechargement des anecdotes via AJAX.
+     */
+    function initAnecdoteReloader() {
+        const reloadButton = document.getElementById('reload-anecdotes');
+        const container = document.getElementById('anecdotes-container');
+        
+        if (reloadButton && container) {
+            
+            // On récupère l'URL de l'API depuis l'attribut data-
+            const apiUrl = reloadButton.dataset.apiUrl;
+
+            reloadButton.addEventListener('click', function() {
+                const currentLang = document.documentElement.lang;
+
+                // On utilise la bonne URL absolue
+                fetch(`${apiUrl}?lang=${currentLang}`)
+                    .then(response => response.json())
+                    .then(newAnecdotes => {
+                        container.innerHTML = '';
+                        
+                        newAnecdotes.forEach(anecdoteText => {
+                            const anecdoteDiv = document.createElement('div');
+                            anecdoteDiv.className = 'anecdote-item';
+                            const anecdoteP = document.createElement('p');
+                            anecdoteP.innerHTML = `“${anecdoteText}”`; 
+                            
+                            anecdoteDiv.appendChild(anecdoteP);
+                            container.appendChild(anecdoteDiv);
+                        });
+                    })
+                    .catch(error => console.error('Erreur lors du chargement des anecdotes:', error));
+            });
+        }
+    }
+    // N'oubliez pas d'appeler la nouvelle fonction à la fin
+    initAnecdoteReloader();
+
 });

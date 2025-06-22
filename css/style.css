@@ -21,7 +21,7 @@ body {
     background-color: var(--background-dark); /* On applique le fond sombre */
     color: var(--text-light);                 /* On applique le texte clair */
     padding-top: 70px; 
-    padding-bottom: 50px;
+    padding-bottom: 100px;
 }
 
 /* Création de la couche d'arrière-plan animée */
@@ -545,6 +545,29 @@ a.cta-button-small:hover {
 .cta-button-secondary:hover {
     background-color: var(--accent-color);
     color: var(--background-dark);
+}
+
+.reload-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.button-reload {
+    background-color: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--text-muted);
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.button-reload:hover {
+    background-color: var(--accent-color);
+    color: var(--background-dark);
+    border-color: var(--accent-color);
 }
 
 /* =================================== */
