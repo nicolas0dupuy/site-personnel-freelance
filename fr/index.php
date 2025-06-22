@@ -18,18 +18,29 @@ error_reporting(E_ALL);
         <div class="carousel-track">
 
             <div class="strength-item carousel-slide">
-                <h3>Expertise Technique</h3>
-                <p>Maîtrise des outils de Data Science et Machine Learning (Python, SQL, Scikit-learn) pour des solutions robustes et performantes.</p>
+                <h3>Services Sur-Mesure</h3>
+                <p>Une gamme de services, du conseil généraliste en data & IA (data analyse, prototypage GCP) au renforcement R&D pour des équipes spécialisées (médical, finance...). Découvrez comment je peux vous aider à atteindre vos objectifs.</p>
+                <div class="slide-buttons">
+                    <a href="<?php echo SITE_URL; ?>/fr/services.php" class="cta-button">Découvrir mes services</a>
+                    <a href="<?php echo SITE_URL; ?>/fr/contact.php" class="cta-button-secondary">Contact</a>
+                </div>
             </div>
 
             <div class="strength-item carousel-slide">
-                <h3>Vision Stratégique</h3>
-                <p>Mon parcours atypique me donne une perspective unique pour comprendre vos enjeux métiers et traduire les données en valeur ajoutée.</p>
+                <h3>Un Parcours, Une Perspective</h3>
+                <p>M'accueillir dans votre équipe, c'est collaborer avec un éternel étudiant. Je vous invite à découvrir les deux facettes qui constituent mon expertise : mon parcours académique et ma perspective de personne dans le spectre de l'autisme.</p>
+                <div class="slide-buttons">
+                    <a href="<?php echo SITE_URL; ?>/fr/parcours.php" class="cta-button">Découvrir mon Parcours</a>
+                    <a href="<?php echo SITE_URL; ?>/fr/un-autre-regard.php" class="cta-button-secondary">Lire "Un Autre Regard"</a>
+                </div>
             </div>
 
             <div class="strength-item carousel-slide">
                 <h3>Apprentissage Continu</h3>
-                <p>Passionné et curieux, je me forme en permanence sur les dernières technologies (GCP, IA Médicale) pour vous offrir le meilleur.</p>
+                <p>Pas une année depuis 25 ans ne s'est passée sans que je ne me forme. Actuellement, ce qui m'enthousiasme sont les applications de l'IA dans le domaine médical (imagerie en particulier), et les méthodes mathématiques/IA en Finance (ainsi que d'autres applications des séries temporelles et des phénomènes aléatoires). Mon Portfolio en construction fera apparaître mes projets en cours.</p>
+                <div class="slide-buttons">
+                    <a href="<?php echo SITE_URL; ?>/fr/portfolio.php" class="cta-button">Voir mon Portfolio</a>
+                </div>
             </div>
 
         </div>

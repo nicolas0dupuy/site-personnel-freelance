@@ -3,7 +3,7 @@
 <main>
     <h1>A Different View</h1>
 
-    <div class="page-intro" style="max-width: 800px; margin-left: auto; margin-right: auto;">
+    <div class="page-intro">
         <p>We are diverse and varied, and capable of doing great things—building a business, running a marathon, succeeding at a strawberry tart, or at long studies—but we all go about it differently. Some people go about it very differently, and that's okay!</p>
         <p>My kindergarten teacher suspected I was autistic. She was right, but it wasn't until 40 years later that I put a name to my difference and felt the need for a diagnosis. Fundamentally, all collaboration is about mutual support to achieve things that are impossible alone. Whether your collaborator is autistic or not doesn't change this principle. We help each other because the project requires it. For it to work, you just need to understand one thing: a different person works differently. But in the end, it's not better, not worse, and it doesn't cost more!</p>
         <p>This section, therefore, will be less serious than it looks. Through short anecdotes, it simply aims to give you a few keys to better understand people like me, and to collaborate just as easily as with anyone else.</p>
