@@ -20,6 +20,7 @@
 <body>
 
 <header>
+    
     <div class="language-switcher">
         <a href="<?php echo SITE_URL; ?>/fr/<?php echo $current_page_key === 'index' ? '' : $current_page_key . '.php'; ?>"><img src="<?php echo SITE_URL; ?>/images/drapeau-fr.svg" alt="Version Française" width="24"></a>
         <a href="<?php echo SITE_URL; ?>/en/<?php echo $current_page_key === 'index' ? '' : $current_page_key . '.php'; ?>"><img src="<?php echo SITE_URL; ?>/images/drapeau-uk.svg" alt="English Version" width="24"></a>

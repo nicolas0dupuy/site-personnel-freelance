@@ -2,8 +2,11 @@
 
 <main>
     <section class="hero">
-        <h1>Nicolas Dupuy - Data, Machine Learning & Scientific Modeling</h1>
-        
+        <h1>Versatile AI</h1>
+        <p class="h1-subtitle">
+            by Nicolas Dupuy | Data, Machine Learning & Scientific Modeling
+        </p>
+
         <p class="subtitle">
             Born from years of academic research at the crossroads of multiple fields, my versatility allows me to solve your data & ML challenges through a wide variety of means. I strengthen your teams by bringing my analytical skills and doctoral-level scientific rigor, from theoretical modeling to the development of practical solutions and various related services.
         </p>

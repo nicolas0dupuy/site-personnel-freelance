@@ -60,6 +60,12 @@ main {
 /* 2. STYLES DES COMPOSANTS            */
 /* =================================== */
 
+/* --- Styles Généraux pour les Titres --- */
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0; /* On annule la marge du haut par défaut */
+    margin-bottom: 0.75em; /* On définit une marge du bas contrôlée et proportionnelle */
+}
+
 /* --- Header & Navigation --- */
 /* --- Header & Navigation --- */
 /* --- Header & Navigation --- */
@@ -568,6 +574,18 @@ a.cta-button-small:hover {
     background-color: var(--accent-color);
     color: var(--background-dark);
     border-color: var(--accent-color);
+}
+
+.hero h1 {
+    font-size: 3.5em; /* On rend le nom de la marque très grand */
+    margin-bottom: 0;
+    color: var(--text-light);
+}
+.h1-subtitle {
+    font-size: 1.2em;
+    margin-top: 2px;
+    color: var(--accent-color); /* On utilise la couleur d'accent pour le sous-titre */
+    font-weight: normal;
 }
 
 /* =================================== */
